@@ -19,7 +19,8 @@ def main():
         print(f'Invalid output file: No such output file {output_file} exists in directory')
         sys.exit()
     else:
-       read_file(input_file)
+        word_dict = read_file(input_file)
+        write_file(word_dict, output_file)
 
 
 # read input file, find words in each line using regular expression match
@@ -37,6 +38,12 @@ def read_file(input_file):
                     word_dict[word.lower()] = 1
     return word_dict
 
+
+# write to output file sorted words in dictionary and the number of occurrences
+def write_file(word_dict, output_file):
+        with open(output_file, 'w') as f:
+            for word in sorted(word_dict):
+                f.write(f'{word} {word_dict[word]}\n')
 
 if __name__ == '__main__':
    main()
