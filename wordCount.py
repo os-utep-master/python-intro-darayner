@@ -22,5 +22,21 @@ def main():
        pass
 
 
+# read input file, find words in each line using regular expression match
+# Add to dictionary and keep track of occurrences, return dictionary
+def read_file(input_file):
+    with open(input_file, 'r') as f:
+        word_dict = {}
+        pattern = re.compile(r'[a-zA-z]+')
+        for line in f:
+            line_words = re.findall(pattern, line)
+            for word in line_words:
+                if word.lower() in word_dict:
+                    word_dict[word.lower()] += 1
+                else:
+                    word_dict[word.lower()] = 1
+    return word_dict
+
+
 if __name__ == '__main__':
    main()
