@@ -19,7 +19,7 @@ def main():
         print(f'Invalid output file: No such output file {output_file} exists in directory')
         sys.exit()
     else:
-       pass
+       read_file(input_file)
 
 
 # read input file, find words in each line using regular expression match
