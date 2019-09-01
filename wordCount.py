@@ -9,8 +9,7 @@ def main():
     output_file = sys.argv[2]
 
     if len(sys.argv) is not 3:
-        print(f'Python executable followed by Input file followed by Output file')
-        print(sys.argv)
+        print('Python executable followed by Input file followed by Output file')
         sys.exit()
     elif not os.path.isfile(input_file):
         print(f'Invalid input file: No such input file {input_file} exists in directory')
@@ -44,6 +43,7 @@ def write_file(word_dict, output_file):
         with open(output_file, 'w') as f:
             for word in sorted(word_dict):
                 f.write(f'{word} {word_dict[word]}\n')
+
 
 if __name__ == '__main__':
    main()
